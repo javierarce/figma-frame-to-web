@@ -1,0 +1,40 @@
+/* styles */
+/* called by your view template */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Canvas {
+  max-width: 100%;
+  height: 100%;
+}
+
+.Canvas img {
+  width: 100%;
+}
+
+.URL {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.URL a {
+  text-decoration: none;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+}
