@@ -2,9 +2,9 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
+  "name": "figma-frame-to-web",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "Renders a Figma frame into a website using SVGs!",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -17,7 +17,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://glitch.com/edit/#!/figma-frame-to-web"
   },
   "license": "MIT",
   "keywords": [

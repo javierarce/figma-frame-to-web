@@ -14,32 +14,38 @@ const client = Figma.Client({
 
 app.use(express.static('public'))
 
-const onGetFileImages = (response, fileImages) => {
-  let ids = process.env.FIGMA_IDS.split(' ')
-  let images = fileImages.data.images
-  let url = images[ids[0]]
+const onGetError = (e) => {
+  console.error(e)
+}
 
-  let request = https.get(url, (res) => {
-    let imagedata = ''
-    res.setEncoding('binary')
+const onGetImage = (response, res) => {
+  let imagedata = ''
+  res.setEncoding('binary')
 
-    res.on('data', function(chunk){
-      imagedata += chunk
-    })
+  res.on('data', function(chunk){
+    imagedata += chunk
+  })
 
-    res.on('end', function(){
-      fs.writeFile(`${__dirname}/public/${FILENAME}`, imagedata, 'binary', (err) => {
-        if (err) {
-          throw err
-        }
-        response.send('File saved!')
-      })
+  res.on('end', function(){
+    fs.writeFile(`${__dirname}/public/${FILENAME}`, imagedata, 'binary', (err) => {
+      if (err) {
+        throw err
+      }
+      response.send('File saved!')
     })
   })
 }
 
-const onGetError = (e) => {
-  console.error(e)
+const onGetFileImages = (response, fileImages) => {
+  let ids = process.env.FIGMA_IDS.split(' ')
+  let images = fileImages.data.images
+  let url = images[ids[0]] // for now just grab the first id
+  
+  console.log('Requesting: ', url)
+  
+  https.get(url, (res) => {
+    onGetImage(response, res)
+  })
 }
 
 app.get('/', function(request, response) {
