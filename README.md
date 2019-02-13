@@ -31,4 +31,4 @@ FIGMA_IDS=12:1234
 ```
 ---
 
-Made by [Javier Arce](http://twitter.com/javier)
+Grab the code in [Github](https://github.com/javierarce/figma-frame-to-web) · Written by [Javier Arce](http://twitter.com/javier)
