@@ -27,4 +27,6 @@ Bonus points: use [cron-job.org](https://cron-job.org) to ping the refresh URL e
 
 ### Play with the code
 
-Run the code in [Glitch](https://glitch.com/edit/#!/figma-frame-to-web?path=README.md:1:0)
+<a href="https://glitch.com/edit/#!/remix/figma-frame-to-web">
+  <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix button" aria-label="remix" height="33">
+</a>
