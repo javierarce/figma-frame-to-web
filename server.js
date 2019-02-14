@@ -52,7 +52,7 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html')
 })
 
-app.get(`/refresh/${ process.env.SECRET }`, (request, response) => {
+app.get(`/refresh/${process.env.SECRET}`, (request, response) => {
   let format = FILE_FORMAT
   let ids = process.env.FIGMA_IDS.split(' ')
   let options = { format, ids }
