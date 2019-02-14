@@ -13,8 +13,9 @@ Renders a Figma frame into a website using SVGs!
 1. Create a new project in Figma. Add a frame and put some cool stuff in it.
 2. Select the frame and copy the `FILE_ID` and `NODE_ID`from the URL (hint: `https://www.figma.com/file/FILE_ID/USERNAME?node-id=NODE_ID`)
 3. Go to your Figma profile and generate a new personal access token.
-4. Edit the `key.env` file in this project and paste the `FILE_ID`, `NODE_ID`, and the token.
-5. Update the `SECRET` with a random string.
+4. Edit the hidden `.env.sample` file in this project and paste the `FILE_ID`, `NODE_ID`, and the token.
+5. Rename `.env.sample` to `.env`.
+6. Update the `SECRET` with a random string.
 
 You are all set! Now: 
 
@@ -23,17 +24,7 @@ You are all set! Now:
 
 Bonus points: use [cron-job.org](https://cron-job.org) to ping the refresh URL every X minutes and have the SVG updated automatically while you sleep!
 
-Your secret .env file should look like this:
 
-```
-SECRET=change-me
-FIGMA_TOKEN=1234-12345678-1234-1234-1234-123456789012
-FIGMA_FILE=1234567890
-FIGMA_IDS=12:1234
-```
+### Play with the code
 
-- Grab the code in [Github](https://github.com/javierarce/figma-frame-to-web)
-- Run the code in [Glitch](https://glitch.com/edit/#!/figma-frame-to-web?path=README.md:1:0)
-
-
-Written by [Javier Arce](http://twitter.com/javier)
+Run the code in [Glitch](https://glitch.com/edit/#!/figma-frame-to-web?path=README.md:1:0)
