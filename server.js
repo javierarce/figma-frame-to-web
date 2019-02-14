@@ -6,7 +6,7 @@ const fs = require('fs')
 const Figma = require ('figma-js')
 
 const FILE_FORMAT = 'svg'
-const FILENAME = 'photo.svg'
+const FILENAME = `photo.${FILE_FORMAT}`
 
 const client = Figma.Client({
   personalAccessToken: process.env.FIGMA_TOKEN
@@ -37,9 +37,9 @@ const onGetImage = (response, res) => {
 }
 
 const onGetFileImages = (response, fileImages) => {
-  let ids = process.env.FIGMA_IDS.split(' ')
+  let ids = fileImages.config.params.ids.split(',')
   let images = fileImages.data.images
-  let url = images[ids[0]] // for now just grab the first id
+  let url = images[ids[0]] // for now let's just grab the first frame
   
   console.log('Requesting: ', url)
   
@@ -53,11 +53,10 @@ app.get('/', function(request, response) {
 })
 
 app.get(`/refresh/${process.env.SECRET}`, (request, response) => {
+  let ids = process.env.FIGMA_IDS.split(',')
   let format = FILE_FORMAT
-  let ids = process.env.FIGMA_IDS.split(' ')
-  let options = { format, ids }
 
-  client.fileImages(process.env.FIGMA_FILE, options).then((fileImages) => {
+  client.fileImages(process.env.FIGMA_FILE, { format, ids }).then((fileImages) => {
     onGetFileImages(response, fileImages)
   }).catch(onGetError)
 })
